@@ -1,7 +1,122 @@
-body {
-    background-color: deepskyblue
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0
 }
 
-h1 {
+html {
+    font-family: 'Roboto';
+    font-size: calc(16px + 0.25vw)
+}
+
+.single-post .hero {
+    width: 100%;
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.single-post .hero img {
+    display: none;
+}
+
+.single-post .hero .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(12,96,220);
+    background: linear-gradient(90deg, rgba(12,96,220,1) 0%, rgba(88,69,232,1) 35%, rgba(137,51,239,1) 100%);
+    opacity: 0.7;
+}
+
+.single-post h1 {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 23ch;
+    font-family: 'Roboto black';
+    font-size: calc(68px + 0.25vw);
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.34);
+}
+
+.single-post .content {
+    margin: auto;
+    max-width: 800px
+}
+
+.single-post .content h2 {
+    font-size: calc(32px + 0.25vw);
+    font-family: 'Roboto Medium';
+    margin: 2.5rem 0rem 1rem 0rem
+}
+
+.single-post .content p {
+    line-height: 1.3rem;
+    margin: 0.5rem 0rem
+}
+
+.single-post .post-info span,
+.single-post .post-info a
+{
+    font-family: 'Roboto Medium'
+}
+
+.single-post a {
+    text-decoration: none;
+    color: black
+}
+
+.single-post .post-info,
+.single-post .comments-section {
+    max-width: 800px;
+    margin: 2rem auto
+}
+
+footer {
+    width: 100%;
+    height: 177px;
+    position: relative;
+    background: rgb(12,96,220);
+    background: linear-gradient(90deg, rgba(12,96,220,1) 0%, rgba(88,69,232,1) 35%, rgba(137,51,239,1) 100%);
+}
+
+footer small {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     color: white
+}
+
+@media screen and (max-width: 900px) {
+    .single-post h1 {
+        font-size: calc(42px + 0.25vw)
+    }
+
+    .single-post .content,
+    .single-post .post-info,
+    .single-post .comments-section {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 555px) {
+    .single-post .hero {
+        height: 300px;
+    }
+    
+    .single-post h1 {
+        font-size: calc(24px + 0.25vw)
+    }
+
+    .single-post .content h2 {
+        font-size: calc(20px + 0.25vw)
+    }
 }
