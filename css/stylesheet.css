@@ -7,7 +7,8 @@
 
 html {
     font-family: 'Roboto';
-    font-size: calc(16px + 0.25vw)
+    font-size: calc(16px + 0.25vw);
+    background-color: #F6F9FC;
 }
 
 main {
@@ -99,6 +100,64 @@ footer small {
     color: white
 }
 
+.articles .image-container {
+    width: 260px;
+    height: 240px;
+    min-width: 260px;
+    min-height: 240px;
+    margin-right: 1rem
+}
+
+.articles .image-container img {
+    width: 100%;
+    height: 100%
+}
+
+.articles li {
+    list-style: none;
+    margin: 2rem 0rem
+}
+
+.articles .article {
+    display: flex;
+    align-items: center
+}
+
+.articles a {
+    text-decoration: none;
+    color: black
+}
+
+.articles h1 {
+    font-size: calc(54px + 0.25vw)
+}
+
+.articles h2 {
+    margin-bottom: 0.3rem;
+}
+
+.articles span,
+.articles .article-categories a {
+    font-family: 'Roboto Medium'
+}
+
+.articles .description p {
+    max-width: 54ch;
+    margin: 0.3rem 0rem
+}
+
+.articles {
+    margin: auto;
+    padding-top: 2rem;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 1300px) {
+    .articles {
+        margin: auto 2rem
+    }
+}
+
 @media screen and (max-width: 900px) {
     .single-post h1 {
         font-size: calc(42px + 0.25vw)
@@ -107,13 +166,22 @@ footer small {
     .single-post .content,
     .single-post .post-info,
     .single-post .comments-section {
-        width: 80vw;
+        width: 80vw
+    }
+
+    .articles .article {
+        flex-direction: column;
+        align-items: flex-start
+    }
+
+    .articles h2 {
+        margin-top: 0.5rem
     }
 }
 
 @media screen and (max-width: 555px) {
     .single-post .hero {
-        height: 300px;
+        height: 300px
     }
     
     .single-post h1 {
@@ -122,5 +190,10 @@ footer small {
 
     .single-post .content h2 {
         font-size: calc(20px + 0.25vw)
+    }
+
+    .articles {
+        margin: auto 1rem;
+        padding-top: 0;
     }
 }

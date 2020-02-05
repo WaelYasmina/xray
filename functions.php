@@ -10,4 +10,14 @@ add_action('wp_enqueue_scripts', 'load_scripts');
 
 add_theme_support('post-thumbnails');
 
+function wpdocs_custom_excerpt_length() {
+    return 20;
+}
+add_filter('excerpt_length', 'wpdocs_custom_excerpt_length');
+
+function wpdocs_excerpt_more() {
+    return '<a href=' . get_the_permalink() . '>Read More</a>';
+}
+add_filter('excerpt_more', 'wpdocs_excerpt_more');
+
 ?>
