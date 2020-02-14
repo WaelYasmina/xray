@@ -9,13 +9,13 @@ Template Name: Home Template
 <?php if(have_posts()) :
     while(have_posts()) : the_post(); ?>
         <section class="hero">
-            <img src="http://xraythemes.com/wp-content/uploads/2020/01/christopher-gower-m_HRfLhgABo-unsplash.jpg" alt="Hero Image">
+            <?php $image = get_field('background'); ?>
+            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
             <div class="overlay"></div>
             <div class="hero-content">
-                <h1>X-RAY THEMES</h1>
-                <p>You tell us about your business
-and we deliver the suitable WordPress theme.</p>
-<a href="#">Book A Free Consultation</a>
+                <h1><?php the_field('title'); ?></h1>
+                <p><?php the_field('slogan'); ?></p>
+<a href="<?php the_field('consultations'); ?>">Book A Free Consultation</a>
             </div>
         </section>
         <section class="process">
@@ -26,13 +26,10 @@ and we deliver the suitable WordPress theme.</p>
                 <h2>The Process</h2>
             </div>
             <ul>
-                <li>You book a consultation <span>for free</span>.</li>
-                <li>We make a 30 min call session so you provide us the necessary information
-about your business and the end goal of the website.</li>
-                <li>We'll keep in contact the whole process, sending you emails containing
-the different prototypes to get your feedback.</li>
-                <li>We schedule another 1 hour call session to show you how to deploy the theme
-and start publishing your content.</li>
+                <li><?php the_field('process_1'); ?></li>
+                <li><?php the_field('process_2'); ?></li>
+                <li><?php the_field('process_3'); ?></li>
+                <li><?php the_field('process_4'); ?></li>
             </ul>
         </section>
         <section class="pricing">

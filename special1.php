@@ -5,9 +5,7 @@ Template Name: Special Page 1
 ?>
 
 <?php get_header(); ?>
-
 <?php get_template_part('part1'); ?>
-
 <main>
 <?php if(have_posts()) :
     while(have_posts()) : the_post(); ?>
