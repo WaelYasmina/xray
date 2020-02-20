@@ -40,27 +40,25 @@ Template Name: Home Template
                 <h2>Pricing</h2>
             </div>
             <div class="cards-container">
+            <?php $cardsLoop = new wp_query(array(
+                'post_type' => 'card'
+            ));?>
+
+            <?php if($cardsLoop->have_posts()) :
+            while($cardsLoop->have_posts()) : $cardsLoop->the_post(); ?>
                 <div class="cards">
-                    <p>BASIC</p>
-                    <p>$449</p>
+                    <p><?php the_field('pack_name'); ?></p>
+                    <p><?php the_field('pack_price'); ?></p>
                     <ul>
-                        <li>Theme</li>
-                        <li>3 months support</li>
-                        <li>Domain name</li>
-                        <li>1 year hosting</li>
+                        <li><?php the_field('feature_1'); ?></li>
+                        <li><?php the_field('feature_2'); ?></li>
+                        <li><?php the_field('feature_3'); ?></li>
+                        <li><?php the_field('feature_4'); ?></li>
+                        <?php if(get_field('feature_5')) {echo '<li>'. get_field('feature_5'). '</li>'; } ?>
                     </ul>
                 </div>
-                <div class="cards">
-                    <p>BASIC</p>
-                    <p>$899</p>
-                    <ul>
-                        <li>Theme</li>
-                        <li>1 year support</li>
-                        <li>Domain name</li>
-                        <li>2 years hosting</li>
-                        <li>$100 premium plugins</li>
-                    </ul>
-                </div>
+            <?php endwhile;
+            endif; ?>
             </div>
         </section>
         <section class="testimonials">
@@ -71,28 +69,25 @@ Template Name: Home Template
                 <h2>Testimonials</h2>
             </div>
             <ul>
-                <li>
+            <?php $testimonialsLoop = new wp_query(array(
+                'post_type' => 'testimonial'
+            )); ?>
+
+            <?php if($testimonialsLoop->have_posts()) :
+            while($testimonialsLoop->have_posts()) : $testimonialsLoop->the_post(); ?>
+                 <li>
                     <div class="testimonial-wrapper">
-                        <img src="http://xraythemes.com/wp-content/uploads/2020/01/andre-noboa-l6t3L6myh90-unsplash@2x.png" alt="testimonial 1">
+                        <?php $photo = get_field('photo'); ?>
+                        <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>">
                         <div class="testimonial">
-                            <p>John Doe</p>
-                            <p>I needed a website for my photography business. So I decided to look for
-someone professional to create it for me. That said,  I contacted the X-RAY team
-and they delivered exactly what I was looking for.</p>
+                            <p><?php the_field('name'); ?></p>
+                            <p><?php the_field('testimonial'); ?></p>
                         </div>
                     </div>
                 </li>
-                <hr>
-                <li>
-                    <div class="testimonial-wrapper">
-                        <img src="http://xraythemes.com/wp-content/uploads/2020/01/brooke-cagle-e8KDU6J-Q4E-unsplash@2x.png" alt="testimonial 2">
-                        <div class="testimonial">
-                            <p>Janette Doe</p>
-                            <p>These guys rock ! I've never thought I'd have such an amazing website for my
-travel vlogs. I do really recommend working with them, they're so professional.</p>
-                        </div>
-                    </div>
-                </li>
+                <?php if(get_field('separator')) {echo '<hr>';} ?>
+            <?php endwhile;
+            endif; ?>
             </ul>
         </section>
     <?php endwhile;

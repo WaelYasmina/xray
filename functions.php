@@ -20,4 +20,20 @@ add_filter('excerpt_length', 'wpdocs_custom_excerpt_length');
 // }
 // add_filter('excerpt_more', 'wpdocs_excerpt_more');
 
+function custom_post_types() {
+    $labels = array(
+        'name' => 'Cards',
+        'add_new_item' => 'Add New Card',
+        'edit_item' => 'Edit Card'
+    );
+
+    register_post_type('card', array(
+        'public' => true,
+        'labels' => $labels,
+        'supports' => array('title')
+    ));
+}
+
+add_action('init', 'custom_post_types');
+
 ?>
