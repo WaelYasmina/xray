@@ -36,4 +36,26 @@ function custom_post_types() {
 
 add_action('init', 'custom_post_types');
 
+function load_navigation() {
+    register_nav_menus(array(
+        'sticky_bar' => 'Sticky Bar',
+        'footer_bar' => 'Footer Bar'
+    ));
+}
+
+add_action('after_setup_theme', 'load_navigation');
+
+function add_widgets() {
+    register_sidebar(array(
+        'name' => 'My Widget',
+        'id' => 'widId',
+        'before_widget' => '<div class="widget"><div class="widget-wrapper">',
+        'after_widget' => '</div></div>',
+        'before_title' => '<p>',
+        'after_title' => '</p>'
+    ));
+}
+
+add_action('widgets_init', 'add_widgets');
+
 ?>

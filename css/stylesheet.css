@@ -129,7 +129,8 @@ footer small {
 }
 
 .articles h1 {
-    font-size: calc(54px + 0.25vw)
+    font-size: calc(54px + 0.25vw);
+    margin-top: 3.5rem
 }
 
 .articles h2 {
@@ -150,6 +151,40 @@ footer small {
     margin: auto;
     padding-top: 2rem;
     max-width: 1200px;
+    display: flex
+}
+
+.articles .widget {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 20%
+}
+
+.articles .widget .widget-wrapper {
+    background-color: #fff;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    padding: 1.5rem
+}
+
+.articles .widget li {
+    margin: 1rem 0
+}
+
+.articles .widget li:last-child {
+    margin-bottom: 0
+}
+
+.articles .widget p {
+    text-align: center;
+    font-family: 'Roboto Medium';
+    font-size: calc(22px + 0.25vw);
+    color: #0C60DC
+}
+
+.articles .widget li a:hover {
+    color: #0C60DC
 }
 
 .home-container .hero {
@@ -347,8 +382,58 @@ footer small {
     margin: 2rem auto
 }
 
+header {
+    width: 100%;
+    height: 3.5rem;
+    position: fixed;
+    z-index: 5;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.14)
+}
+
+header nav {
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+header a {
+    color: black;
+    text-decoration: none
+}
+
+header .logo {
+    font-family: 'Roboto Black';
+    border: solid black 0.15rem;
+    padding: 0.2rem
+}
+
+header nav li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 1rem
+}
+
+header nav li a:hover {
+    color: #802ADF
+}
+
+header .mobile-nav {
+    display: none
+}
+
+header .mobile-nav .slice {
+    width: 100%;
+    height: 3px;
+    background-color: black
+}
+
 @media screen and (max-width: 1300px) {
-    .articles {
+    .articles,
+    header nav {
         margin: auto 2rem
     }
 
@@ -379,6 +464,15 @@ footer small {
 
     .articles h2 {
         margin-top: 0.5rem
+    }
+
+    .articles {
+        flex-direction: column
+    }
+
+    .articles .widget {
+        height: auto;
+        margin-bottom: 1rem
     }
 
     .home-container .hero-content h1,
@@ -450,5 +544,29 @@ footer small {
 
     .home-container .testimonials img {
         margin-right: 0
+    }
+
+    header {
+        height: auto;
+        padding: 1rem 0;
+        position: static
+    }
+
+    header .mobile-nav {
+        width: 35px;
+        height: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
+    }
+
+    header nav li {
+        display: block;
+        text-align: center;
+        margin: 1rem 0 0 0
+    }
+
+    header nav .menu-nav-1-container {
+        display: none
     }
 }
