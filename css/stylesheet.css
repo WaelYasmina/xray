@@ -412,7 +412,7 @@ header .logo {
 }
 
 header nav li {
-    list-style-type: none;
+    list-style: none;
     display: inline-block;
     margin-left: 1rem
 }
@@ -491,7 +491,6 @@ header .mobile-nav .slice {
         margin-top: 1rem
     }
 }
-
 
 @media screen and (max-width: 555px) {
     .single-post .hero {

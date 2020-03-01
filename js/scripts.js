@@ -17,9 +17,11 @@ mobileNav.addEventListener('click', () => {
     navItems.style.display = 'flex';
 });
 
-const section = document.querySelector('section');
-section.addEventListener('click', () => {
-    mobileNav.style.display = 'flex';
-    nav.style.flexDirection = 'row';
-    navItems.style.display = 'none';
+const main = document.querySelector('main');
+main.addEventListener('click', () => {
+    if(main.offsetWidth <= 555) {
+        mobileNav.style.display = 'flex';
+        nav.style.flexDirection = 'row';
+        navItems.style.display = 'none';
+    }
 });
