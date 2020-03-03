@@ -41,7 +41,8 @@ Template Name: Home Template
             </div>
             <div class="cards-container">
             <?php $cardsLoop = new wp_query(array(
-                'post_type' => 'card'
+                'post_type' => 'card',
+                'posts_per_page' => 4
             ));?>
 
             <?php if($cardsLoop->have_posts()) :
@@ -70,7 +71,8 @@ Template Name: Home Template
             </div>
             <ul>
             <?php $testimonialsLoop = new wp_query(array(
-                'post_type' => 'testimonial'
+                'post_type' => 'testimonial',
+                'posts_per_page' => 4
             )); ?>
 
             <?php if($testimonialsLoop->have_posts()) :
